@@ -1,7 +1,6 @@
-# NAK DS
 <img src="https://github.com/bpatzak/NAKDS/blob/main/Numerick%C3%A9%20metody/Logolink_OP_VVV_hor_barva_cz.jpg">
 
-**Numerické metody mechaniky**
+# Numerické metody mechaniky
 
 Na této stránce najdete podklady pro výuku doktorských předmětů <a href="https://github.com/bpatzak/NAKDS/blob/main/Numerick%C3%A9%20metody/Numerick%C3%A9%20metody.ipynb">Numerické metody mechaniky I a II</a>
 
