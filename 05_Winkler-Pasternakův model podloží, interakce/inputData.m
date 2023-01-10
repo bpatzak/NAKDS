@@ -1,0 +1,47 @@
+function [conn, lm, ev, xy] = inputData (lenX, lenY, nx, ny)
+   
+    nn = (nx+1)*(ny+1);
+    ne = nx*ny;
+
+    ev = zeros(ne, 1);
+
+    % 0 = podlozi
+    % 1 = deska
+    for i=1:8
+      ev(12*ny+8+i) = 1;
+      ev(24*ny+8+i) = 1;
+    end
+
+    dx = lenX/nx;
+    dy = lenY/ny;
+
+    xy = zeros((nx+1)*(ny+1),2);
+    conn = zeros(nx*ny, 4);
+    lm = zeros(nx*ny, 3*4);
+
+    for i=1:(nx+1)
+      for j=1:(ny+1)
+        n = (i-1)*(ny+1)+j;
+        xy(n,1) = (i-1)*dx;
+        xy(n,2) = (j-1)*dy;
+      end
+    end  
+
+    for i=1:nx
+      for j=1:ny
+        n = (i-1)*(ny)+j;
+
+        conn(n, 1) = (i-1)*(ny+1)+j;
+        conn(n, 2) = (i)*(ny+1)+j;
+        conn(n, 3) = conn(n, 2)+1;
+        conn(n, 4) = conn(n, 1)+1;
+
+        for k=1: 4
+          lm(n, (k-1)*3+1) = (conn(n, k)-1)*3+1;
+          lm(n, (k-1)*3+2) = (conn(n, k)-1)*3+2;
+          lm(n, (k-1)*3+3) = (conn(n, k)-1)*3+3;
+        end
+      end
+    end
+
+end
